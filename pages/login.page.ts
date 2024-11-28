@@ -11,9 +11,7 @@ class LoginPage {
         passwordLocator: () => this.page.locator('input[name="password"]'),
         submitButtonLocator: () => this.page.locator('button[type="submit"]'),
     }
-    async visit(url: string) {
-        await this.page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-    }
+   
     async enterUsername(username: string) {
         await this.elements.usernameLocator().fill(username);
     }
@@ -24,7 +22,6 @@ class LoginPage {
         await this.elements.submitButtonLocator().click();
     }
     async login(username: string, password: string, url: string) {
-        await this.visit(url);
         await this.enterUsername(username);
         await this.enterPassword(password);
         await this.submit();
