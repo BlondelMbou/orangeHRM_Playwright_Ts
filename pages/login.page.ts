@@ -10,6 +10,7 @@ class LoginPage {
         usernameLocator: () => this.page.locator('input[name="username"]'),
         passwordLocator: () => this.page.locator('input[name="password"]'),
         submitButtonLocator: () => this.page.locator('button[type="submit"]'),
+        errorMessageLocator : ()=> this.page.locator('.oxd-text.oxd-text--p.oxd-alert-content-text')    
     }
    
     async enterUsername(username: string) {
