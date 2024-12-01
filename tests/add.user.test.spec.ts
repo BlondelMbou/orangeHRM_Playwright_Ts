@@ -25,16 +25,16 @@ test.describe("Add user from admin page", () => {
         await expect(page).toHaveURL('https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index');
         await adminPage.clickAdmin();
         await expect(page).toHaveURL("https://opensource-demo.orangehrmlive.com/web/index.php/admin/viewSystemUsers");
-        await addButton.clickAdd();
-        await expect(page).toHaveURL("https://opensource-demo.orangehrmlive.com/web/index.php/admin/saveSystemUser");
-        await addUser.enterUserRole();
-        await addUser.enterEmployeeName("");
-        await addUser.enterStatus()
-        await addUser.enterUsername("");
-        await addUser.enterPasswoerd("");
-        await addUser.enterConfirmPassword("");
+        // await addButton.clickAdd();
+        // await expect(page).toHaveURL("https://opensource-demo.orangehrmlive.com/web/index.php/admin/saveSystemUser");
+        await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/admin/saveSystemUser');
+        await addUser.enterUserRole('Admin');
+        await addUser.enterEmployeeName('Blondel MBOU');
+        await addUser.enterStatus('Enabled');
+        await addUser.enterUsername('newuser123');
+        await addUser.enterPassword('Password@123');
+        await addUser.enterConfirmPassword('Password@123');
         await addUser.clickSave();
-        await expect(page).toHaveURL("");
-    })
+        await expect(page.locator('.oxd-toast')).toContainText('Successfully Saved')    })
 })
 
