@@ -19,12 +19,12 @@ test.describe("Add admin test", () => {
     await admin.clickAddButton();
     await admin.clickUserRole();
     await admin.clickUserRoleESS();
-    await admin.entrerEmployeeName("Ranga  Akunuri");
+    await admin.entrerEmployeeName("Shelby  Berg");
     await admin.clickStatus();
     await admin.clickEnable();
     await admin.enterUsername("userrr");
     await admin.enterPassword("hirabelhocine1");
-    await admin.confirmPassword("hirabelhocine1");
+    await admin.confirmPassword("hirabelhocine");
     await admin.save();
   });
 });
