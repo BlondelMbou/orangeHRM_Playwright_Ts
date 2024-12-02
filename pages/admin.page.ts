@@ -1,6 +1,6 @@
 import { type Page } from "@playwright/test";
 
-export class AddAdmin {
+ class AddAdmin {
     readonly page: Page;
 
     constructor(page: Page) {
@@ -63,4 +63,4 @@ export class AddAdmin {
     async save() {
         await this.elements.boutonSave().click();
     }
-}
+}export default AddAdmin;
