@@ -7,18 +7,18 @@ export class AddAdmin {
         this.page = page;
     }
     elements = {
-        adminButton: () => this.page.locator(".oxd-main-menu-item.active"),
-        addBouton: () => this.page.locator('button.oxd-button.oxd-button--medium.oxd-button--secondary'),
-        userRole: () => this.page.locator('.oxd-select-text-input'),
+        adminButton: () => this.page.locator('#app > div.oxd-layout.orangehrm-upgrade-layout > div.oxd-layout-navigation > aside > nav > div.oxd-sidepanel-body > ul > li:nth-child(1) > a'),
+        addBouton: () => this.page.locator('#app > div.oxd-layout.orangehrm-upgrade-layout > div.oxd-layout-container > div.oxd-layout-context > div > div.orangehrm-paper-container > div.orangehrm-header-container > button'),
+        userRole: () => this.page.locator('#app > div.oxd-layout.orangehrm-upgrade-layout > div.oxd-layout-container > div.oxd-layout-context > div > div > form > div:nth-child(1) > div > div:nth-child(1) > div > div:nth-child(2) > div > div > div.oxd-select-text-input'),
         userRoleAdmin: () => this.page.locator('div[role="option"]:has-text("Admin")'),
         UserRoleESS: () => this.page.locator('div[role="option"]:has-text("ESS")'),
         employeeName: () => this.page.locator('input[placeholder="Type for hints..."]'),
-        status: () => this.page.locator('.oxd-select-text-input'),
+        status: () => this.page.locator('#app > div.oxd-layout.orangehrm-upgrade-layout > div.oxd-layout-container > div.oxd-layout-context > div > div > form > div:nth-child(1) > div > div:nth-child(3) > div > div:nth-child(2) > div > div > div.oxd-select-text-input'),
         enable: () => this.page.locator('div[role="option"]:has-text("Enabled")'),
         disabled:() => this.page.locator('div[role="option"]:has-text("Disabled")'),
-        username: () => this.page.locator(".oxd-input.oxd-input--active"),
-        password: () => this.page.locator('input[type="password"][autocomplete="off"]:nth-of-type(1)'),
-        confirmPassword: () => this.page.locator('input[type="password"][autocomplete="off"]:nth-of-type(2)'),
+        username: () => this.page.locator("#app > div.oxd-layout.orangehrm-upgrade-layout > div.oxd-layout-container > div.oxd-layout-context > div > div > form > div:nth-child(1) > div > div:nth-child(4) > div > div:nth-child(2) > input"),
+        password: () => this.page.locator('#app > div.oxd-layout.orangehrm-upgrade-layout > div.oxd-layout-container > div.oxd-layout-context > div > div > form > div.oxd-form-row.user-password-row > div > div.oxd-grid-item.oxd-grid-item--gutters.user-password-cell > div > div:nth-child(2) > input'),
+        confirmPassword: () => this.page.locator('#app > div.oxd-layout.orangehrm-upgrade-layout > div.oxd-layout-container > div.oxd-layout-context > div > div > form > div.oxd-form-row.user-password-row > div > div:nth-child(2) > div > div:nth-child(2) > input'),
         boutonSave: () => this.page.locator('button:has-text("Save")'),
     };
     async navigate(url: string) {
