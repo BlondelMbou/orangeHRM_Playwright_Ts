@@ -9,7 +9,7 @@ export class AddAdmin {
     elements = {
         adminButton: () => this.page.locator('#app > div.oxd-layout.orangehrm-upgrade-layout > div.oxd-layout-navigation > aside > nav > div.oxd-sidepanel-body > ul > li:nth-child(1) > a'),
         addBouton: () => this.page.locator('#app > div.oxd-layout.orangehrm-upgrade-layout > div.oxd-layout-container > div.oxd-layout-context > div > div.orangehrm-paper-container > div.orangehrm-header-container > button'),
-        userRole: () => this.page.locator('#app > div.oxd-layout.orangehrm-upgrade-layout > div.oxd-layout-container > div.oxd-layout-context > div > div > form > div:nth-child(1) > div > div:nth-child(1) > div > div:nth-child(2) > div > div > div.oxd-select-text-input'),
+        userRole: () => this.page.locator('#app > div.oxd-layout.orangehrm-upgrade-layout > div.oxd-layout-container > div.oxd-layout-context > div > div > form > div:nth-child(1) > div > div:nth-child(1) > div > div:nth-child(2) > div > div > div.oxd-select-text--after > i'),
         userRoleAdmin: () => this.page.locator('div[role="option"]:has-text("Admin")'),
         UserRoleESS: () => this.page.locator('div[role="option"]:has-text("ESS")'),
         employeeName: () => this.page.locator('input[placeholder="Type for hints..."]'),
@@ -20,6 +20,9 @@ export class AddAdmin {
         password: () => this.page.locator('#app > div.oxd-layout.orangehrm-upgrade-layout > div.oxd-layout-container > div.oxd-layout-context > div > div > form > div.oxd-form-row.user-password-row > div > div.oxd-grid-item.oxd-grid-item--gutters.user-password-cell > div > div:nth-child(2) > input'),
         confirmPassword: () => this.page.locator('#app > div.oxd-layout.orangehrm-upgrade-layout > div.oxd-layout-container > div.oxd-layout-context > div > div > form > div.oxd-form-row.user-password-row > div > div:nth-child(2) > div > div:nth-child(2) > input'),
         boutonSave: () => this.page.locator('button:has-text("Save")'),
+        msgErreur: () => this.page.locator("#app > div.oxd-layout.orangehrm-upgrade-layout > div.oxd-layout-container > div.oxd-layout-context > div > div > form > div.oxd-form-row.user-password-row > div > div:nth-child(2) > div > span"),
+        firstSuggestion: () => this.page.locator('div[role="option"]').first(), 
+        span: () => this.page.locator('span:has-text("Timothy Lewis Amiano")')
     };
     async navigate(url: string) {
         await this.page.goto(url);
@@ -31,13 +34,13 @@ export class AddAdmin {
         await this.elements.addBouton().click();
     }
     async clickUserRole(){
-        this.elements.userRole().click();
+        await this.elements.userRole().click();
     }
     async clickUserRoleAdmin(){
-        this.elements.userRoleAdmin().click();
+        await this.elements.userRoleAdmin().click();
     }
     async clickUserRoleESS(){
-        this.elements.UserRoleESS().click();
+        await this.elements.UserRoleESS().click();
     }
     async clickStatus(){
         await this.elements.status().click();
@@ -49,7 +52,10 @@ export class AddAdmin {
         await this.elements.disabled().click();
     }
     async entrerEmployeeName(employee_name: string) {
-        await this.elements.employeeName().fill(employee_name);
+
+    await this.elements.employeeName().click();
+    await this.elements.employeeName().fill(employee_name);
+    await this.elements.span().click();
     }
     async enterUsername(username: string) {
         await this.elements.username().fill(username);
@@ -58,9 +64,10 @@ export class AddAdmin {
         await this.elements.password().fill(password);
     }
     async confirmPassword(confirmPassword: string) {
-        await this.elements.password().fill(confirmPassword);
+        await this.elements.confirmPassword().fill(confirmPassword);
     }
     async save() {
         await this.elements.boutonSave().click();
     }
 }
+export default AddAdmin;
